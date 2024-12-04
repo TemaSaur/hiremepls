@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "hiremepls"
+version = "0.1.0"
+description = ""
+authors = ["TemaSaur <temasaur@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+peewee = "^3.17.8"
+psycopg-binary = "^3.2.3"
+psycopg2-binary = "^2.9.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
