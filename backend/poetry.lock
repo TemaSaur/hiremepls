@@ -113,6 +113,21 @@ files = [
 ]
 
 [[package]]
+name = "peewee-migrate"
+version = "1.13.0"
+description = "Support for migrations in Peewee ORM"
+optional = false
+python-versions = "<4.0,>=3.8"
+files = [
+    {file = "peewee_migrate-1.13.0-py3-none-any.whl", hash = "sha256:66597f5b8549a8ff456915db60e8382daf7839eef79352027e7cf54feec56860"},
+    {file = "peewee_migrate-1.13.0.tar.gz", hash = "sha256:1ab67f72a0936006155e1b310c18a32f79e4dff3917cfeb10112ca92518721e5"},
+]
+
+[package.dependencies]
+click = "*"
+peewee = ">=3,<4"
+
+[[package]]
 name = "psycopg2-binary"
 version = "2.9.10"
 description = "psycopg2 - Python-PostgreSQL Database Adapter"
@@ -380,4 +395,4 @@ standard = ["colorama (>=0.4)", "httptools (>=0.6.3)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "2412a3f6c976115c4c8243a9c30476471acaa4b557b732eeb5e4281cedffd989"
+content-hash = "de765ffc619f3b74faf9720fa8aeb063d18385f63bf6c00a2a3d645e5e6bba1e"
