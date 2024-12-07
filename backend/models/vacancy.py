@@ -1,5 +1,5 @@
 from peewee import *
-from models.base import BaseModel
+from models.base import BaseModel, SlugField
 from models.organization import Organization
 
 
@@ -9,3 +9,4 @@ class Vacancy(BaseModel):
     description = TextField(default="")
     pay = IntegerField(default=0)
     worktime = TextField(default="")
+    slug = SlugField()
