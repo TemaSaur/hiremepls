@@ -1,9 +1,10 @@
-from fastapi import APIRouter, HTTPException, Response
+from fastapi import APIRouter, HTTPException, Response, Cookie
 from auth.models import UserCreate, UserGet, UserLogin
 from auth.utils import password as psw_util
 from auth.utils import jwt as jwt_util
 from models.user import User
 
+from typing import Annotated
 from peewee import IntegrityError
 
 
@@ -37,3 +38,22 @@ def login(user: UserLogin, response: Response) -> UserGet:
         raise HTTPException(401, detail="No such user")
     except psw_util.BadPassword:
         raise HTTPException(401, detail="Password doesn't match")
+
+
+@router.post("/me")
+def me(token: Annotated[str | None, Cookie()] = None) -> UserGet:
+    login_msg = "You have to be logged in"
+    if not token:
+        raise HTTPException(401, login_msg)
+    try:
+        payload = jwt_util.validate(token)
+        email = payload["sub"]
+        user_db = User.get(User.email == email)
+        return UserGet(**user_db.__data__)
+    except jwt_util.BadJWT:
+        raise HTTPException(401, login_msg)
+
+
+@router.post("/logout")
+def logout(response: Response):
+    response.delete_cookie("token")

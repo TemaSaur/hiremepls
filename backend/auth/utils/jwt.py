@@ -22,6 +22,6 @@ def issue(user) -> str:
 
 def validate(token: str):
     try:
-        return jwt.decode(token)
+        return jwt.decode(token, SECRET, algorithms=ALGORITHMS)
     except Exception:
         raise BadJWT()
