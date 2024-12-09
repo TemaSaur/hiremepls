@@ -1,8 +1,8 @@
 from peewee import *
-from models.base import BaseModel
-from models.vacancy import Vacancy
-from models.user import User
-from models.resume import Resume
+from db.models.base import BaseModel
+from db.models.vacancy import Vacancy
+from db.models.user import User
+from db.models.resume import Resume
 
 
 class Application(BaseModel):

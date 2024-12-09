@@ -1,5 +1,5 @@
 from peewee import *
-from models.base import BaseModel, SlugField
+from db.models.base import BaseModel, SlugField
 
 
 class Organization(BaseModel):

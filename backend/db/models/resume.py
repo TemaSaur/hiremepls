@@ -1,5 +1,5 @@
 from peewee import *
-from models.base import BaseModel
+from db.models.base import BaseModel
 
 
 class Resume(BaseModel):

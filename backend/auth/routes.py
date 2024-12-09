@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Response, Cookie
 from auth.models import UserCreate, UserGet, UserLogin
 from auth.utils import password as psw_util
 from auth.utils import jwt as jwt_util
-from models.user import User
+from db.models.user import User
 
 from typing import Annotated
 from peewee import IntegrityError

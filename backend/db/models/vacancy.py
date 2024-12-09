@@ -1,6 +1,6 @@
 from peewee import *
-from models.base import BaseModel, SlugField
-from models.organization import Organization
+from db.models.base import BaseModel, SlugField
+from db.models.organization import Organization
 
 
 class Vacancy(BaseModel):
