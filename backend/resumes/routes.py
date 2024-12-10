@@ -1,6 +1,6 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
 from fastapi.responses import StreamingResponse
-from db.models.resume import Resume
+from db.models import Resume
 from auth.depends import get_user
 
 from peewee import DoesNotExist

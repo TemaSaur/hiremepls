@@ -5,11 +5,7 @@ from applications.models import ApplicationCreate, ApplicationGet
 from organizations.models import OrganizationGet
 from auth.models import UserGet
 from vacancies.models import VacancyGet
-from db.models.user import User
-from db.models.vacancy import Vacancy
-from db.models.resume import Resume
-from db.models.organization import Organization
-from db.models.application import Application
+from db.models import User, Vacancy, Resume, Organization, Application
 
 from auth.depends import get_user
 

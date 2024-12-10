@@ -3,7 +3,7 @@ from typing import Annotated
 from peewee import DoesNotExist
 
 from auth.utils import jwt as jwt_util
-from db.models.user import User
+from db.models import User
 
 
 def get_token(

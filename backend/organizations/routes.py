@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from organizations.models import OrganizationCreate, OrganizationGet
-from db.models.organization import Organization
+from db.models import Organization
 
 
 router = APIRouter()

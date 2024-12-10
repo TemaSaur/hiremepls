@@ -3,8 +3,7 @@ from fastapi import APIRouter, HTTPException
 from vacancies.models import VacancyCreate, VacancyGet
 from organizations.models import OrganizationGet
 
-from db.models.vacancy import Vacancy
-from db.models.organization import Organization
+from db.models import Vacancy, Organization
 
 from peewee import DoesNotExist
 
