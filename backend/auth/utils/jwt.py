@@ -12,7 +12,7 @@ class BadJWT(Exception):
 
 
 def issue(user) -> str:
-    exp = datetime.datetime.utcnow() + TTL
+    exp = datetime.datetime.now(datetime.UTC) + TTL
     data = {
         "sub": user.email,
         "exp": exp

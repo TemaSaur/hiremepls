@@ -22,10 +22,8 @@ def get_models():
 def use_database():
     db = SqliteDatabase('.test.db')
     models = get_models()
-    print(models)
     for model in models:
         model._meta.database = db
-        print(model.__name__)
     db.connect()
     db.create_tables(models)
     yield db

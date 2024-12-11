@@ -40,7 +40,7 @@ def login(user: UserLogin, response: Response) -> UserGet:
         raise HTTPException(401, detail="Password doesn't match")
 
 
-@router.post("/me")
+@router.get("/me")
 def me(token: Annotated[str | None, Cookie()] = None) -> UserGet:
     login_msg = "You have to be logged in"
     if not token:
