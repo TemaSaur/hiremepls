@@ -1,6 +1,6 @@
-export default function Button({active=True, children}) {
+export default function Button({active=true, children}) {
     const color = active ? 'bg-[#AAAEFF]' : 'bg-[#E5E5EB]'
-    return <button className={`cursor rounded-lg py-1 px-4 ${color}`}>
+    return <button className={`cursor rounded-lg py-1 px-4 ${color} w-fit`}>
         {children}
     </button>
 }

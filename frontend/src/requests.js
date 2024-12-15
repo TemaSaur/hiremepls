@@ -1,11 +1,32 @@
 const BASE = 'http://localhost:8000'
 
-export const get = async (url, data = null) => {
-    const opts = {}
+const send = async (url, method, data = null) => {
+    const opts = {
+        method: method,
+        credentials: 'include'
+    }
+
     if (data != null) {
-        opts['data'] = JSON.stringify(data)
+        opts['']
+        opts['body'] = JSON.stringify(data)
+        opts['headers'] = {
+            'Content-Type': 'application/json'
+        }
     }
 
     const res = await fetch(BASE + url, opts)
-    return await res.json()
+    const json = await res.json()
+
+    if (json == null) return
+
+    json.status_code = res.status
+    return json
+}
+
+export const get = async (url, data = null) => {
+    return await send(url, 'get', data)
+}
+
+export const post = async (url, data = null) => {
+    return await send(url, 'post', data)
 }
