@@ -5,7 +5,8 @@
 :root {
   --background: #E1E6EF;
   --foreground: #222223;
-  --soft: rgba(0, 0, 0, 10%)
+  --soft: rgba(0, 0, 0, 10%);
+  --softext: #6B6972;
 }
 
 

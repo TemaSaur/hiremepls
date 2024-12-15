@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from auth.routes import router as auth_router
 from organizations.routes import router as org_router
 from vacancies.routes import router as vac_router, org_router as org_vac_router
@@ -7,6 +8,14 @@ from applications.routes import router as app_router, vac_router as vac_app_rout
 
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*'],
+)
 
 
 @app.get("/")
