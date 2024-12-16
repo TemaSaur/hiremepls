@@ -35,7 +35,7 @@ export default function AuthForm({type}) {
     }
 
     return <form onSubmit={onSubmit} className="flex flex-col items-center gap-4">
-        {error && <p className="text-red-300">{error}</p> }
+        {error && <p className="text-red-800">{error}</p> }
 
         <div className="flex flex-col">
             <label htmlFor="email">E-mail</label>

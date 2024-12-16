@@ -30,3 +30,15 @@ export const get = async (url, data = null) => {
 export const post = async (url, data = null) => {
     return await send(url, 'post', data)
 }
+
+export const sendFile = async (url, file) => {
+    const formData = new FormData()
+    formData.append('file', file)
+
+    const res = await fetch(BASE + url, {
+        method: 'post',
+        credentials: 'include',
+        body: formData,
+    })
+    return await res.json()
+}

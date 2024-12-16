@@ -5,19 +5,25 @@ import { get } from "@/requests"
 import Top from "@/components/top"
 import VacancyInner from "@/components/vacancy_inner"
 import Button from "@/components/button"
+import Apply from "@/components/apply"
+import Markdown from "markdown-to-jsx"
 
 export default function() {
     const params = useParams()
+    const hash = window.location.hash
 
     const [vacancy, setVacancy] = useState(null)
-    const [info, setInfo] = useState(true)
+    const [info, setInfo] = useState(hash === '')
 
     useEffect(() => {
         (async () => {
            setVacancy(await get(`/vacancies/${params.slug}`))
         })()
     }, [])
-    console.log(vacancy)
+
+    useEffect(() => {
+        window.location.hash = info ? '' : 'apply'
+    }, [info])
 
     return <main>
         <Top>
@@ -26,16 +32,20 @@ export default function() {
                 : <VacancyInner vacancy={vacancy} />}
             
             <div className="buttons mt-4 gap-8 flex">
-                <Button active={!info}>Описание</Button>
-                <Button active={info}>Отклик</Button>
+                <Button active={!info} onClick={() => setInfo(true)}>Описание</Button>
+                <Button active={info} onClick={() => setInfo(false)}>Отклик</Button>
             </div>
         </Top>
 
         <div className="container">
             {vacancy && info &&
                 <div className="description py-6">
-                    {vacancy.description}
-                </div> }
+                    <Markdown>{vacancy.description}</Markdown>
+                </div>
+            }
+            {vacancy && !info &&
+                <Apply vacancy={vacancy} />
+            }
         </div>
     </main>
 }
