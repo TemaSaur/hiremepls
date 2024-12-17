@@ -16,6 +16,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@media (max-width: 360px) {
+  .logo {
+    display: none;
+  }
+  nav {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}
+
 .container {
   width: 100%;
   max-width: 800px;
