@@ -47,3 +47,16 @@ textarea {
 ol > li {
   list-style-type: decimal !important;
 }
+
+
+.wait {
+  color: #6B6972;
+}
+
+.accepted {
+  color: #3DA141;
+}
+
+.rejected {
+  color: #B63C3C;
+}
