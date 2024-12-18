@@ -21,7 +21,7 @@ export default function Applications() {
     }, [])
 
     return <main>
-        <Top>Отклики</Top>
+        <Top><h1>Отклики</h1></Top>
         <div className="container">
             <div className="py-8">
                 {applications.map(application => 
