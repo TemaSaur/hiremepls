@@ -23,7 +23,7 @@ export default function Applications() {
     return <main>
         <Top><h1>Отклики</h1></Top>
         <div className="container">
-            <div className="py-8">
+            <div className="py-8 flex flex-col gap-4">
                 {applications.map(application => 
                     <Application application={application} key={application.vacancy.slug} />
                 )}
