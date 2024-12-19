@@ -73,3 +73,15 @@ def test_get_me(client: TestClient, use_user):
 def test_get_me_ready(client: TestClient, use_loggedin):
     response = client.get('/auth/me')
     assert response.status_code == 200
+
+
+def test_non_unique_user(client: TestClient):
+    data = {
+        'email': 'valid@email.ru',
+        'password': 'longpass',
+        'full_name': 'Full Name',
+        'course': 1,
+    }
+    client.post('/auth/register')
+    response = client.post('/auth/register')
+    assert response.status_code >= 400
